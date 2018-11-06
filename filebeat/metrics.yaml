@@ -1,0 +1,77 @@
+filebeat.prospectors:
+- type: log
+  paths:
+    - ./metrics.log
+
+processors:
+# - add_kubernetes_metadata:
+#     in_cluster: false
+#     host: "127.0.0.1"
+#     kube_config: /root/.kube/config
+# - add_fields:
+#     fields:
+#       log: '{message}'
+# - decode_json_fields:
+#     when:
+#        regexp:
+#          log: "{*}"
+#     fields: ["log"]
+#     overwrite_keys: true
+#     target: ""
+
+# processors:
+#   - decode_json_fields:
+#       fields: ["message"]
+#       target: ""
+#       overwrite_keys: true
+
+# processors:
+  - parse_metrics_fields:
+      fields: ["message"]
+      target: ""
+      overwrite_keys: true
+
+
+# - drop_fields:
+     # fields: ["source", "beat.version", "beat.name", "message"]
+# - parse_level:
+     # levels: ["fatal", "error", "warn", "info", "debug"]
+     # field: "log"
+
+# - parse_metrics_fields:
+#     when:
+#        regexp:
+#          log: "message"
+#     fields: "message"
+#     overwrite_keys: true
+#     target: ""
+
+
+logging.level: debug
+setup.template.enabled: true
+setup.template.name: "filebeat-*"
+setup.template.pattern: "filebeat-*"
+#setup.template.fields: "${path.config}/fields.yml"
+setup.template.fields: "./fields.yml"
+setup.template.overwrite: true
+# setup.template.settings:
+#    index:
+#      analysis:
+#        analyzer:
+#          enncloud_analyzer:
+#            filter: ["standard", "lowercase", "stop"]
+#            char_filter: ["my_filter"]
+#            type: custom
+#            tokenizer: standard
+#        char_filter:
+#          my_filter:
+#            type: mapping
+#            mappings: ["-=>_"]
+
+output:
+  elasticsearch:
+    hosts: ["localhost:9200"]
+    index: "filebeat-%{+yyyy.MM.dd}"
+
+
+
