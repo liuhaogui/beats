@@ -29,6 +29,7 @@ include::../include/config-option-intro.asciidoc[]
 
 include::../include/var-paths.asciidoc[]
 
+<<<<<<< HEAD
 [float]
 ==== `gc` log fileset settings
 
@@ -49,6 +50,8 @@ include::../include/var-paths.asciidoc[]
 
 include::../include/var-paths.asciidoc[]
 
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 :has-dashboards!:
 
 :fileset_ex!:

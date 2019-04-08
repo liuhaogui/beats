@@ -31,9 +31,12 @@ $env:MAGEFILE_CACHE = "$env:WORKSPACE\.magefile"
 $env:TEST_COVERAGE = "true"
 $env:RACE_DETECTOR = "true"
 
+<<<<<<< HEAD
 # Install mage from vendor.
 exec { go install github.com/elastic/beats/vendor/github.com/magefile/mage } "mage install FAILURE"
 
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 if (Test-Path "$env:beat") {
     cd "$env:beat"
 } else {

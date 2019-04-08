@@ -68,4 +68,6 @@ include::../../libbeat/docs/yaml.asciidoc[]
 
 include::../../libbeat/docs/http-endpoint.asciidoc[]
 
+include::../../libbeat/docs/http-endpoint.asciidoc[]
+
 include::../../libbeat/docs/reference-yml.asciidoc[]

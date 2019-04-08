@@ -34,19 +34,28 @@ import (
 )
 
 var (
+<<<<<<< HEAD
 	pkg     string
 	input   string
 	output  string
 	name    string
 	license = "ASL2"
+=======
+	pkg    string
+	input  string
+	output string
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 )
 
 func init() {
 	flag.StringVar(&pkg, "pkg", "", "Package name")
 	flag.StringVar(&input, "in", "-", "Source of input. \"-\" means reading from stdin")
 	flag.StringVar(&output, "out", "-", "Output path. \"-\" means writing to stdout")
+<<<<<<< HEAD
 	flag.StringVar(&license, "license", "ASL2", "License header for generated file.")
 	flag.StringVar(&name, "name", "", "Asset name")
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 }
 
 func main() {
@@ -80,6 +89,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Invalid file path: %s\n", input)
 			os.Exit(1)
 		}
+<<<<<<< HEAD
 	}
 
 	// Depending on OS or tools configuration, files can contain carriages (\r),
@@ -93,6 +103,15 @@ func main() {
 	licenseHeader, err := licenses.Find(license)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Invalid license: %s\n", err)
+=======
+	}
+
+	// Depending on OS or tools configuration, files can contain carriages (\r),
+	// what leads to different results, remove them before encoding.
+	encData, err := asset.EncodeData(strings.Replace(string(data), "\r", "", -1))
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error encoding the data: %s\n", err)
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 		os.Exit(1)
 	}
 	var buf bytes.Buffer
@@ -103,7 +122,10 @@ func main() {
 		Beat:    beatName,
 		Name:    name,
 		Data:    encData,
+<<<<<<< HEAD
 		License: licenseHeader,
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 		Package: pkg,
 	})
 

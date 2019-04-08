@@ -48,7 +48,11 @@ func (m *FactoryAdapter) CreateConfig(e bus.Event) ([]*common.Config, error) {
 }
 
 // CheckConfig tests given config to check if it will work or not, returns errors in case it won't work
+<<<<<<< HEAD:libbeat/autodiscover/factoryadapter.go
 func (m *FactoryAdapter) CheckConfig(c *common.Config) error {
+=======
+func (m *AutodiscoverAdapter) CheckConfig(c *common.Config) error {
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32:metricbeat/autodiscover/autodiscover.go
 	return m.factory.CheckConfig(c)
 }
 

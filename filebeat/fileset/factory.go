@@ -18,7 +18,11 @@
 package fileset
 
 import (
+<<<<<<< HEAD
 	"github.com/gofrs/uuid"
+=======
+	uuid "github.com/satori/go.uuid"
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 
 	"github.com/elastic/beats/filebeat/channel"
 	"github.com/elastic/beats/filebeat/input"
@@ -147,10 +151,14 @@ func (p *inputsRunner) Start() {
 		callback := func(esClient *elasticsearch.Client) error {
 			return p.moduleRegistry.LoadPipelines(esClient, p.overwritePipelines)
 		}
+<<<<<<< HEAD
 		p.pipelineCallbackID, err = elasticsearch.RegisterConnectCallback(callback)
 		if err != nil {
 			logp.Err("Error registering connect callback for Elasticsearch to load pipelines: %v", err)
 		}
+=======
+		p.pipelineCallbackID = elasticsearch.RegisterConnectCallback(callback)
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 	}
 
 	for _, input := range p.inputs {

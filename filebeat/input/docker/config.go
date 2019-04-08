@@ -34,9 +34,12 @@ type config struct {
 
 	// Enable CRI flags parsing (to be switched to default in 7.0)
 	CRIFlags bool `config:"cri.parse_flags"`
+<<<<<<< HEAD
 
 	// Fore CRI format (don't perform autodetection)
 	CRIForce bool `config:"cri.force"`
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 }
 
 type containers struct {

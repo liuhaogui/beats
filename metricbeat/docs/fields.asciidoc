@@ -5457,7 +5457,7 @@ Total size of the index in bytes.
 *`elasticsearch.index.total.segments.count`*::
 +
 --
-type: long
+type: float
 
 Total number of index segments.
 
@@ -11805,7 +11805,32 @@ Time deleting documents in microseconds.
 
 --
 
+<<<<<<< HEAD
 *`mongodb.collstats.remove.count`*::
+=======
+
+*`kubernetes.event.timestamp.first_occurrence`*::
++
+--
+type: date
+
+Timestamp of first occurrence of event
+
+
+--
+
+*`kubernetes.event.timestamp.last_occurrence`*::
++
+--
+type: date
+
+Timestamp of last occurrence of event
+
+
+--
+
+*`kubernetes.event.message`*::
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 +
 --
 type: long

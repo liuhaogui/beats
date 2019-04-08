@@ -38,6 +38,7 @@ var (
 	modkernel32 = syscall.NewLazyDLL("kernel32.dll")
 	modversion  = syscall.NewLazyDLL("version.dll")
 	modpsapi    = syscall.NewLazyDLL("psapi.dll")
+<<<<<<< HEAD
 	modntdll    = syscall.NewLazyDLL("ntdll.dll")
 
 	procGetNativeSystemInfo       = modkernel32.NewProc("GetNativeSystemInfo")
@@ -53,6 +54,17 @@ var (
 	procGetProcessImageFileNameA  = modpsapi.NewProc("GetProcessImageFileNameA")
 	procEnumProcesses             = modpsapi.NewProc("EnumProcesses")
 	procNtQueryInformationProcess = modntdll.NewProc("NtQueryInformationProcess")
+=======
+
+	procGetNativeSystemInfo     = modkernel32.NewProc("GetNativeSystemInfo")
+	procGetTickCount64          = modkernel32.NewProc("GetTickCount64")
+	procGetSystemTimes          = modkernel32.NewProc("GetSystemTimes")
+	procGlobalMemoryStatusEx    = modkernel32.NewProc("GlobalMemoryStatusEx")
+	procGetFileVersionInfoW     = modversion.NewProc("GetFileVersionInfoW")
+	procGetFileVersionInfoSizeW = modversion.NewProc("GetFileVersionInfoSizeW")
+	procVerQueryValueW          = modversion.NewProc("VerQueryValueW")
+	procGetProcessMemoryInfo    = modpsapi.NewProc("GetProcessMemoryInfo")
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 )
 
 func _GetNativeSystemInfo(systemInfo *SystemInfo) {
@@ -198,6 +210,7 @@ func _GetProcessMemoryInfo(handle syscall.Handle, psmemCounters *ProcessMemoryCo
 	}
 	return
 }
+<<<<<<< HEAD
 
 func _GetProcessImageFileNameA(handle syscall.Handle, imageFileName *byte, nSize uint32) (len uint32, err error) {
 	r0, _, e1 := syscall.Syscall(procGetProcessImageFileNameA.Addr(), 3, uintptr(handle), uintptr(unsafe.Pointer(imageFileName)), uintptr(nSize))
@@ -229,3 +242,5 @@ func _NtQueryInformationProcess(handle syscall.Handle, infoClass uint32, info ui
 	ntStatus = uint32(r0)
 	return
 }
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32

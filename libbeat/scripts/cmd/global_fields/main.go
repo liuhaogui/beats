@@ -48,6 +48,24 @@ func main() {
 	esBeats, err := os.Open(esBeatsPath)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error opening elastic/beats: %+v\n", err)
+<<<<<<< HEAD
+=======
+		os.Exit(1)
+	}
+	beat, err := os.Open(beatPath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error opening target Beat: %+v\n", err)
+		os.Exit(1)
+	}
+	esBeatsInfo, err := esBeats.Stat()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error getting file info of elastic/beats: %+v\n", err)
+		os.Exit(1)
+	}
+	beatInfo, err := beat.Stat()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error getting file info of target Beat: %+v\n", err)
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 		os.Exit(1)
 	}
 	beat, err := os.Open(beatPath)
@@ -73,14 +91,24 @@ func main() {
 	// it's not a problem because all of them has unique fields.yml files somewhere.
 	if len(beatFieldsPaths) == 0 && os.SameFile(esBeatsInfo, beatInfo) {
 		if output != "-" {
+<<<<<<< HEAD
 			fmt.Fprintln(os.Stderr, "No field files to collect")
+=======
+			fmt.Println("No field files to collect")
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 		}
 		return
 	}
 
 	var fieldsFiles []*fields.YmlFile
 	for _, fieldsFilePath := range beatFieldsPaths {
+<<<<<<< HEAD
 		fieldsFile, err := fields.CollectModuleFiles(fieldsFilePath)
+=======
+		pathToModules := filepath.Join(beatPath, fieldsFilePath)
+
+		fieldsFile, err := fields.CollectModuleFiles(pathToModules)
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Cannot collect fields.yml files: %+v\n", err)
 			os.Exit(2)
@@ -95,9 +123,15 @@ func main() {
 		os.Exit(3)
 	}
 
+<<<<<<< HEAD
 	outputPath, _ := filepath.Abs(output)
 	if err != nil {
 		outputPath = output
 	}
 	fmt.Fprintf(os.Stderr, "Generated fields.yml for %s to %s\n", name, outputPath)
+=======
+	if output != "-" {
+		fmt.Printf("Generated fields.yml for %s\n", name)
+	}
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 }

@@ -106,7 +106,10 @@ type config struct {
 	DockerJSON *struct {
 		Stream   string `config:"stream"`
 		Partial  bool   `config:"partial"`
+<<<<<<< HEAD
 		ForceCRI bool   `config:"force_cri_logs"`
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 		CRIFlags bool   `config:"cri_flags"`
 	} `config:"docker-json"`
 }

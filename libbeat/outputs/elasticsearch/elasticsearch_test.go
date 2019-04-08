@@ -27,6 +27,7 @@ func TestConnectCallbacksManagement(t *testing.T) {
 	f1 := func(client *Client) error { fmt.Println("i am function #1"); return nil }
 	f2 := func(client *Client) error { fmt.Println("i am function #2"); return nil }
 
+<<<<<<< HEAD
 	_, err := RegisterConnectCallback(f0)
 	if err != nil {
 		t.Fatalf("error while registering callback: %v", err)
@@ -39,6 +40,11 @@ func TestConnectCallbacksManagement(t *testing.T) {
 	if err != nil {
 		t.Fatalf("error while registering callback: %v", err)
 	}
+=======
+	_ = RegisterConnectCallback(f0)
+	id1 := RegisterConnectCallback(f1)
+	id2 := RegisterConnectCallback(f2)
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 
 	t.Logf("removing second callback")
 	DeregisterConnectCallback(id1)

@@ -6,9 +6,14 @@
         "iis.access.geoip.city_name": "Berlin", 
         "iis.access.geoip.continent_name": "Europe", 
         "iis.access.geoip.country_iso_code": "DE", 
+<<<<<<< HEAD
         "iis.access.geoip.location.lat": 52.4908, 
         "iis.access.geoip.location.lon": 13.3275, 
         "iis.access.geoip.region_iso_code": "DE-BE", 
+=======
+        "iis.access.geoip.location.lat": 52.5167, 
+        "iis.access.geoip.location.lon": 13.4, 
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
         "iis.access.geoip.region_name": "Land Berlin", 
         "iis.access.method": "GET", 
         "iis.access.port": "80", 
@@ -72,9 +77,14 @@
         "iis.access.geoip.city_name": "Berlin", 
         "iis.access.geoip.continent_name": "Europe", 
         "iis.access.geoip.country_iso_code": "DE", 
+<<<<<<< HEAD
         "iis.access.geoip.location.lat": 52.4908, 
         "iis.access.geoip.location.lon": 13.3275, 
         "iis.access.geoip.region_iso_code": "DE-BE", 
+=======
+        "iis.access.geoip.location.lat": 52.5167, 
+        "iis.access.geoip.location.lon": 13.4, 
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
         "iis.access.geoip.region_name": "Land Berlin", 
         "iis.access.hostname": "example.com", 
         "iis.access.http_version": "1.1", 

@@ -36,7 +36,10 @@ type Client interface {
 	// factory) will take care of retrying/dropping events.
 	Publish(publisher.Batch) error
 
+<<<<<<< HEAD
 	// String identifies the client type and endpoint.
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 	String() string
 }
 

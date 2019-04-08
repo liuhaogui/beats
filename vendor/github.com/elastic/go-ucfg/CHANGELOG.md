@@ -225,6 +225,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Introduced CHANGELOG.md for documenting changes to ucfg.
 
 
+[Unreleased]: https://github.com/elastic/go-ucfg/compare/v0.6.1...HEAD
 [Unreleased]: https://github.com/elastic/go-ucfg/compare/v0.6.5...HEAD
 [0.6.4]: https://github.com/elastic/go-ucfg/compare/v0.6.4...v0.6.5
 [0.6.4]: https://github.com/elastic/go-ucfg/compare/v0.6.3...v0.6.4

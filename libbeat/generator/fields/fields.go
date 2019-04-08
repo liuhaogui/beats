@@ -43,7 +43,10 @@ func collectCommonFiles(esBeatsPath, beatPath string, fieldFiles []*YmlFile) ([]
 	if !isLibbeat(beatPath) {
 		commonFields = append(commonFields,
 			filepath.Join(esBeatsPath, "libbeat/_meta/fields.common.yml"),
+<<<<<<< HEAD
 			filepath.Join(esBeatsPath, "libbeat/_meta/fields.ecs.yml"),
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 		)
 
 		libbeatModulesPath := filepath.Join(esBeatsPath, "libbeat/processors")
@@ -76,6 +79,7 @@ func isLibbeat(beatPath string) bool {
 	return filepath.Base(beatPath) == "libbeat"
 }
 
+<<<<<<< HEAD
 func writeGeneratedFieldsYml(fieldFiles []*YmlFile, output string) error {
 	data, err := GenerateFieldsYml(fieldFiles)
 	if err != nil {
@@ -92,16 +96,37 @@ func writeGeneratedFieldsYml(fieldFiles []*YmlFile, output string) error {
 	}
 
 	f, err := os.Create(output)
+=======
+func writeGeneratedFieldsYml(beatPath string, fieldFiles []*YmlFile, output string) error {
+	data, err := GenerateFieldsYml(fieldFiles)
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
+	if err != nil {
+		return err
+	}
+
+<<<<<<< HEAD
+	fw := bufio.NewWriter(f)
+	_, err = fw.Write(data)
+	if err != nil {
+		return err
+	}
+=======
+	if output == "-" {
+		fw := bufio.NewWriter(os.Stdout)
+		fw.Write(data)
+		return fw.Flush()
+	}
+
+	outPath := filepath.Join(beatPath, output)
+	f, err := os.Create(outPath)
 	if err != nil {
 		return err
 	}
 	defer f.Close()
 
 	fw := bufio.NewWriter(f)
-	_, err = fw.Write(data)
-	if err != nil {
-		return err
-	}
+	fw.Write(data)
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 	return fw.Flush()
 }
 
@@ -142,5 +167,9 @@ func Generate(esBeatsPath, beatPath string, files []*YmlFile, output string) err
 		return err
 	}
 
+<<<<<<< HEAD
 	return writeGeneratedFieldsYml(files, output)
+=======
+	return writeGeneratedFieldsYml(beatPath, files, output)
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 }

@@ -28,8 +28,11 @@ import (
 
 // Syscalls
 //sys   _GetProcessMemoryInfo(handle syscall.Handle, psmemCounters *ProcessMemoryCountersEx, cb uint32) (err error) = psapi.GetProcessMemoryInfo
+<<<<<<< HEAD
 //sys   _GetProcessImageFileNameA(handle syscall.Handle, imageFileName *byte, nSize uint32) (len uint32, err error) = psapi.GetProcessImageFileNameA
 //sys   _EnumProcesses(lpidProcess *uint32, cb uint32, lpcbNeeded *uint32) (err error) = psapi.EnumProcesses
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 
 var (
 	sizeofProcessMemoryCountersEx = uint32(unsafe.Sizeof(ProcessMemoryCountersEx{}))
@@ -62,6 +65,7 @@ func GetProcessMemoryInfo(process syscall.Handle) (ProcessMemoryCountersEx, erro
 	}
 	return info, nil
 }
+<<<<<<< HEAD
 
 // GetProcessImageFileName retrieves the process main executable.
 // The returned path is a device path, that is:
@@ -98,3 +102,5 @@ func EnumProcesses() (pids []uint32, err error) {
 		}
 	}
 }
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32

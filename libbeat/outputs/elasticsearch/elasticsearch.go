@@ -22,7 +22,11 @@ import (
 	"fmt"
 	"sync"
 
+<<<<<<< HEAD
 	"github.com/gofrs/uuid"
+=======
+	uuid "github.com/satori/go.uuid"
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 
 	"github.com/elastic/beats/libbeat/beat"
 	"github.com/elastic/beats/libbeat/common"
@@ -70,12 +74,17 @@ func newCallbacksRegistry() callbacksRegistry {
 // RegisterConnectCallback registers a callback for the elasticsearch output
 // The callback is called each time the client connects to elasticsearch.
 // It returns the key of the newly added callback, so it can be deregistered later.
+<<<<<<< HEAD
 func RegisterConnectCallback(callback connectCallback) (uuid.UUID, error) {
+=======
+func RegisterConnectCallback(callback connectCallback) uuid.UUID {
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 	connectCallbackRegistry.mutex.Lock()
 	defer connectCallbackRegistry.mutex.Unlock()
 
 	// find the next unique key
 	var key uuid.UUID
+<<<<<<< HEAD
 	var err error
 	exists := true
 	for exists {
@@ -83,11 +92,20 @@ func RegisterConnectCallback(callback connectCallback) (uuid.UUID, error) {
 		if err != nil {
 			return uuid.Nil, err
 		}
+=======
+	exists := true
+	for exists {
+		key = uuid.NewV4()
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 		_, exists = connectCallbackRegistry.callbacks[key]
 	}
 
 	connectCallbackRegistry.callbacks[key] = callback
+<<<<<<< HEAD
 	return key, nil
+=======
+	return key
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 }
 
 // DeregisterConnectCallback deregisters a callback for the elasticsearch output

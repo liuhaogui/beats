@@ -62,6 +62,7 @@ func generateFieldsYAML(baseDir string, moduleDirs ...string) error {
 	globalFieldsCmd := sh.RunCmd("go", "run",
 		filepath.Join(beatsDir, globalFieldsCmdPath),
 		"-es_beats_path", beatsDir,
+<<<<<<< HEAD
 		"-beat_path", baseDir,
 		"-out", "fields.yml",
 	)
@@ -121,6 +122,10 @@ func GenerateModuleFieldsGo() error {
 		"-beat", BeatName,
 		"-license", licenseType,
 		filepath.Join(CWD(), "module"),
+=======
+		"-beat_path", CWD(),
+		"-out", "fields.yml",
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 	)
 
 	return moduleFieldsCmd()

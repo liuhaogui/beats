@@ -107,7 +107,10 @@ func defaultConfig(settings report.Settings) config {
 }
 
 func makeReporter(beat beat.Info, settings report.Settings, cfg *common.Config) (report.Reporter, error) {
+<<<<<<< HEAD
 	log := logp.L().Named(selector)
+=======
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 	config := defaultConfig(settings)
 	if err := cfg.Unpack(&config); err != nil {
 		return nil, err

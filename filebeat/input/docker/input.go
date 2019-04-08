@@ -84,11 +84,15 @@ func NewInput(
 		return nil, errors.Wrap(err, "update input config")
 	}
 
+<<<<<<< HEAD
 	if err := cfg.SetBool("docker-json.cri_flags", -1, config.CRIFlags); err != nil {
 		return nil, errors.Wrap(err, "update input config")
 	}
 
 	if err := cfg.SetBool("docker-json.force_cri_logs", -1, config.CRIForce); err != nil {
+=======
+	if err := cfg.SetBool("docker-json.cri_flags", -1, config.Partial); err != nil {
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
 		return nil, errors.Wrap(err, "update input config")
 	}
 

@@ -8,7 +8,11 @@
     #- shard
     #- ml_job
   period: 10s
+<<<<<<< HEAD
   hosts: ["http://localhost:9200"]
+=======
+  hosts: ["localhost:9200"]
+>>>>>>> aa82756e2ff04055bd5c7678a03abc815bec4b32
   #username: "elastic"
   #password: "changeme"
   #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
